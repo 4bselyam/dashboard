@@ -11,7 +11,7 @@ You need installed MongoDB locally, because backend uses `mongodb://0.0.0.0:2701
 ### Running
 
 `npm run dev || yarn dev` - runs the project via nodemon <br>
-`npm run start` - simple project running (with no reload on save)
+`npm run start || yarn start` - simple project running (with no reload on save)
 
 ## Frontend
 
