@@ -3,12 +3,9 @@ import User from '../models/User.js';
 export const getUser = async (req, res) => {
   try {
     const { id } = req.params;
-    const user = await User.findById(id);
-    const plainUser = user.toObject();
+    const user = await User.findById(id).select('-password');
 
-    delete plainUser.password;
-
-    res.status(200).json(plainUser);
+    res.status(200).json(user);
   } catch (error) {
     res.status(404).json({ message: error.message });
   }
