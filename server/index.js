@@ -7,7 +7,7 @@ import helmet from 'helmet';
 import morgan from 'morgan';
 
 import clientRoutes from './routes/client.js';
-import genetalRoutes from './routes/general.js';
+import generalRoutes from './routes/general.js';
 import managementRoutes from './routes/management.js';
 import salesRoutes from './routes/sales.js';
 
@@ -31,7 +31,7 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cors());
 
 app.use('/client', clientRoutes);
-app.use('/general', genetalRoutes);
+app.use('/general', generalRoutes);
 app.use('/management', managementRoutes);
 app.use('/sales', salesRoutes);
 
