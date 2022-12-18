@@ -11,9 +11,12 @@ import genetalRoutes from './routes/general.js';
 import managementRoutes from './routes/management.js';
 import salesRoutes from './routes/sales.js';
 
-const PORT = process.env.PORT || 9000;
+import User from './models/User.js';
+import { dataUser } from './data/index.js';
+
 dotenv.config();
 const app = express();
+const PORT = process.env.PORT || 9000;
 
 app.use(express.json());
 app.use(helmet());
@@ -34,5 +37,10 @@ mongoose
     useNewUrlParser: true,
     useUnifiedTopology: true,
   })
-  .then(() => app.listen(PORT, () => console.log(`Server running on port: ${PORT}`)))
+  .then(() =>
+    app.listen(PORT, () => {
+      console.log(`Server running on port: ${PORT}`);
+      // User.insertMany(dataUser);
+    }),
+  )
   .catch((error) => console.log(`${error} did not connect`));
